@@ -1,31 +1,33 @@
-pipeline {
-    agent any
-stages {
-    stage ('Compile Stage') {
+pipeline { 
+  agent any
 
-        steps {
-        with Maven(maven :'moses_3.8.6'){
-            sh 'mvn clean compile'
-        }
-        }
+  
+  stages { 
+    stage('clone repository') {
+      steps { 
+        git 'https://github.com/hanjarim/gallery.git'
+      }
     }
-}
-
-stage ('Testing Stage') {
-
-        steps {
-        with Maven(maven :'moses_3.8.6'){
-            sh 'mvn test'
-        }
+     stage('Build the project') {
+      steps { 
+        sh 'echo "here we will Build"'
+      }
+      
     }
- }
-
-stage ('Deployment Stage') {
-
-        steps {
-        with Maven(maven :'moses_3.8.6'){
-            sh 'mvn deploy'
-        }
+    stage('Install Dependencies') {
+      steps { 
+        sh 'echo "Here we Install"'
+      }
     }
- }
+    stage('Tests') {
+      steps { 
+        sh 'echo "here we run tests"'
+      }
+    }
+	stage('Deploy Application') {
+      steps {
+              sh 'echo "deploy an APP"'
+              }
+    }
+  }
 }
