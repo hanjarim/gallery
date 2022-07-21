@@ -1,6 +1,9 @@
 pipeline { 
   agent any
 
+tools{
+	nodejs 'nodes_18'
+  }
   
   stages { 
     stage('clone repository') {
@@ -16,12 +19,12 @@ pipeline {
     }
     stage('Install Dependencies') {
       steps { 
-        sh 'echo "Here we Install"'
+        sh 'echo "npm install''
       }
     }
     stage('Tests') {
       steps { 
-        sh 'echo "here we run tests"'
+        sh 'echo "npm test"'
       }
     }
 	stage('Deploy Application') {
