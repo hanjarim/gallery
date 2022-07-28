@@ -35,4 +35,12 @@ tools{
     }
   }
 }
+post {
+  success {
+    slacksend colors: "good", message:"Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} Succeeded.Deployed at ${LIVE_SITE}"
+  }
+  failure {
+    slacksend color "danger", message:"Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} failed.See ${env.BUILD_URL} for details." 
+  }
+}
 }
