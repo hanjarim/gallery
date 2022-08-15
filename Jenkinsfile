@@ -1,8 +1,7 @@
 pipeline { 
   agent any
   environment {
-            EMAIL_BODY =
-             LIVE_SITE = 'https://powerful-springs-62769.herokuapp.com/'
+           LIVE_SITE = 'https://powerful-springs-62769.herokuapp.com/'
   }
 tools{
 	nodejs 'nodejs_18'
